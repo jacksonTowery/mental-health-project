@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
-public class InputManager : MonoBehaviour
+[DefaultExecutionOrder(-1)]
+public class InputManager : Singleton<InputManager>
 {
     public delegate void StartTouchEvent(Vector2 position, float time);
     public event StartTouchEvent OnStartTouch;
@@ -18,11 +21,15 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         touchControls.Enable();
+        TouchSimulation.Enable();
+        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += FingerDown;
     }
 
     private void OnDisable()
     {
         touchControls.Disable();
+        TouchSimulation.Disable();
+        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown -= FingerDown;
     }
 
     private void Start()
@@ -43,5 +50,20 @@ public class InputManager : MonoBehaviour
         Debug.Log("Touch Ended " + touchControls.Touch.TouchPosition.ReadValue<Vector2>());
         if (OnEndTouch != null)
             OnEndTouch(touchControls.Touch.TouchPosition.ReadValue<Vector2>(), (float)context.time);
+    }
+
+    private void FingerDown(Finger finger)
+    {
+        if (OnStartTouch != null)
+            OnStartTouch(finger.screenPosition, Time.time);
+    }
+
+    private void pdate()
+    {
+        Debug.Log(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches);
+        foreach(UnityEngine.InputSystem.EnhancedTouch.Touch touch in UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches)
+        {
+            Debug.Log(touch.phase == UnityEngine.InputSystem.TouchPhase.Began);
+        }
     }
 }

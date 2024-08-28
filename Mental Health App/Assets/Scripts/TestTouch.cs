@@ -21,8 +21,11 @@ public class TestTouch : MonoBehaviour
         inputManager.OnEndTouch -= Move;
     }
 
-    public void OnAnimatorMove(Vector2 screenPosition, float time)
+    public void Move(Vector2 screenPosition, float time)
     {
-        Vector3 screenCoordinates = new Vector3(screenPosition.x, screenPosition.y, );
+        Vector3 screenCoordinates = new Vector3(screenPosition.x, screenPosition.y, cameraMain.nearClipPlane);
+        Vector3 worldCoordinates = cameraMain.ScreenToWorldPoint(screenCoordinates);
+        worldCoordinates.z = 0;
+        transform.position = worldCoordinates; 
     }
 }
