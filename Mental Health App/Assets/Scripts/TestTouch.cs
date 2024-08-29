@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 
 public class TestTouch : MonoBehaviour
@@ -29,3 +30,4 @@ public class TestTouch : MonoBehaviour
         transform.position = worldCoordinates; 
     }
 }
+*/
