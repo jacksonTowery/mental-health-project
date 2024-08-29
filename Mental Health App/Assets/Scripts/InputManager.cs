@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
+//using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 [DefaultExecutionOrder(-1)]
 public class InputManager : Singleton<InputManager>
@@ -58,7 +58,7 @@ public class InputManager : Singleton<InputManager>
             OnStartTouch(finger.screenPosition, Time.time);
     }
 
-    private void pdate()
+    private void Update()
     {
         Debug.Log(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches);
         foreach(UnityEngine.InputSystem.EnhancedTouch.Touch touch in UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches)
