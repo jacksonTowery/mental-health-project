@@ -1,4 +1,0 @@
-repository "Mental Health App@unity_FAA3B9BA20B58C438166@cloud"
-  path "/"
-    br "/main"
-    co "/main"

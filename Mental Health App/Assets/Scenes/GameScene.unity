@@ -250,11 +250,11 @@ GameObject:
   - component: {fileID: 487405544}
   m_Layer: 0
   m_Name: Game Camera
-  m_TagString: MainCamera
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &487405544
 AudioListener:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487405543}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &487405545
 Camera:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 2
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
