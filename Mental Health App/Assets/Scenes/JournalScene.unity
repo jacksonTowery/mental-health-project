@@ -878,7 +878,7 @@ GameObject:
   - component: {fileID: 1167137117}
   - component: {fileID: 1167137116}
   m_Layer: 0
-  m_Name: Journal Camera
+  m_Name: Main Camera
   m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -934,7 +934,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 3
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
