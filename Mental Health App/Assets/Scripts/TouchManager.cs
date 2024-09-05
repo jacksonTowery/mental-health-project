@@ -7,6 +7,12 @@ using UnityEngine.InputSystem;
 public class TouchManager : MonoBehaviour
 {
 
+    private int YPosStart = 0;
+    private int XPosStart = 0;
+
+    private int YPosEnd = 0;
+    private int XPosEnd = 0;
+
     [SerializeField]
     private GameObject player;
 
@@ -37,15 +43,28 @@ public class TouchManager : MonoBehaviour
         //float value = context.ReadValue<float>();
         //Debug.Log(value);
 
-        //Vector2 position = touchPositionAction.ReadValue<Vector2>();
-        Vector3 position = Camera.main.ScreenToWorldPoint(touchPositionAction.ReadValue<Vector2>());
+        Vector2 loc = touchPositionAction.ReadValue<Vector2>();
+        Vector3 position = Camera.main.ScreenToWorldPoint(loc);
         position.z = player.transform.position.z;
         player.transform.position = position;
+        Debug.Log("X pos: " + getXPos() + "  |  Y pos: " + getYPos());
+
+    }
+
+    private int getYPos()
+    {
+        return 0;
+    }
+
+    private int getXPos()
+    {
+        return 0;
     }
 
     private void Update()
     {
-        
+        if(touchPositionAction!=null)
+            Debug.Log("X pos: "+getXPos()+"  |  Y pos: "+getYPos());
     }
 }
 
