@@ -34,19 +34,19 @@ public class Swipe : MonoBehaviour
             }
 
             //Swipe Right
-            if (endPos.x > startPos.x+deadzone)
+            else if (endPos.x > startPos.x+deadzone)
             {
                 SRight();
             }
 
             //Swipe Down
-            if (endPos.y > startPos.y+deadzone)
+            else if (endPos.y > startPos.y+deadzone)
             {
                 SDown();
             }
 
             //Swipe Up
-            if (endPos.y < startPos.y-deadzone)
+            else if (endPos.y < startPos.y-deadzone)
             {
                 SUp();
             }
@@ -55,23 +55,22 @@ public class Swipe : MonoBehaviour
 
     private void SLeft()
     {
-        ArrowID = 0;
-        ArrowImage.texture.Equals(Arrows[ArrowID].texture);
+        ArrowImage = Arrows[0];
         Debug.Log("Swiped Left");
     }
     private void SRight()
     {
-        ArrowID = 1;
+        ArrowImage = Arrows[1];
         Debug.Log("Swiped Right");
     }
     private void SDown()
     {
-        ArrowID = 2;
+        ArrowImage = Arrows[2];
         Debug.Log("Swiped Down");
     }
     private void SUp()
     {
-        ArrowID = 3;
+        ArrowImage = Arrows[3];
         Debug.Log("Swiped Up");
     }
 }
