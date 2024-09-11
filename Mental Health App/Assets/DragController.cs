@@ -38,7 +38,8 @@ public class DragController : MonoBehaviour
         {
             return;
         }
-        _worldposition = Camera.current.ScreenToWorldPoint(_screenPosition);
+
+         _worldposition = Camera.current.ScreenToWorldPoint(new Vector3(_screenPosition.x,_screenPosition.y,Camera.current.nearClipPlane));
 
         if (_isDragActive)
         {
@@ -46,14 +47,14 @@ public class DragController : MonoBehaviour
         }
         else
         {
-            RaycastHit2D hit = Physics2D.Raycast(_worldposition, Vector2.zero);
-            if (hit.collider == null)
+            RaycastHit2D hit = Physics2D.Raycast(_worldposition, Vector3.zero);
+            if (hit.collider != null)
             {
-                draggable draggable = hit.transform.gameObject.GetComponent<draggable>();
-                Debug.Log(draggable.name);
-                if (draggable != null)
+                draggable Draggable = hit.transform.gameObject.GetComponent<draggable>();
+                Debug.Log(Draggable.name);
+                if (Draggable != null)
                 {
-                    _lastDragged = draggable;
+                    _lastDragged = Draggable;
                     InitDrag();
                 }
             }
