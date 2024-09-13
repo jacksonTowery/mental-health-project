@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem.Android.LowLevel;
+using UnityEngine.SceneManagement;
 
 public class draggable : MonoBehaviour
 {
@@ -23,8 +25,8 @@ public class draggable : MonoBehaviour
     {
         if (drag)
         {
-            Vector2 MousePos = Camera.current.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            transform.position = MousePos;
+            Vector3 MousePos = Camera.current.ScreenToViewportPoint(5*Input.mousePosition);
+            transform.localPosition = MousePos - new Vector3(2,4,0);
         }
     }
 }
