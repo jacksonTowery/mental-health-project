@@ -14,7 +14,7 @@ public class draggable : MonoBehaviour
         drag = true;
         print("Mouse Down");
     }
-
+     
     private void OnMouseUp()
     {
         drag = false;
@@ -25,8 +25,11 @@ public class draggable : MonoBehaviour
     {
         if (drag)
         {
-            Vector3 MousePos = Camera.current.ScreenToViewportPoint(5*Input.mousePosition);
-            transform.localPosition = MousePos - new Vector3(2,4,0);
+            Vector3 MousePos = Camera.current.ScreenToViewportPoint(Input.mousePosition);
+            transform.localPosition = MousePos - transform.localPosition;
+            //Vector3 AbsPos = new Vector3(Mathf.Abs(transform.localPosition.x), Mathf.Abs(transform.localPosition.y), Mathf.Abs(transform.localPosition.z))*(-1);
+            //transform.localPosition = MousePos - AbsPos;
+            //transform.localPosition = AbsPos * (-1);
         }
     }
 }
