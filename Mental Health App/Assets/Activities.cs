@@ -8,7 +8,7 @@ using UnityEditor.SceneManagement;
 public class Activities : MonoBehaviour
 {
     // Start is called before the first frame update
-    void start()
+    void Awake()
     {
     
         PermissionRequest request = new PermissionRequest();
