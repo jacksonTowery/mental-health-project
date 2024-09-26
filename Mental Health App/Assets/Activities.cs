@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor.SceneManagement;
 using System.Threading.Tasks;
+using Unity.Mathematics;
 
 public class Activities : MonoBehaviour
 {
@@ -13,18 +14,17 @@ public class Activities : MonoBehaviour
     void Awake()
     {
 
-        PermissionRequest request = new PermissionRequest();
-        while (request.Status == PermissionStatus.RequestPending)
-        {
-            print("pending");
-        }
-        if (request.Status == PermissionStatus.Denied)
-        {
-            print("denied");
-            SceneManager.LoadScene("MHStart");
-        }
-        else
-        {
+        //PermissionRequest request = new PermissionRequest();
+        //while (request.Status == PermissionStatus.RequestPending)
+        //{
+        ///    print("pending");
+       // }
+//{
+       //     print("denied");
+       //   SceneManager.LoadScene("MHStart");
+       // }
+      // else
+      //  {
             //android notification channel
             AndroidNotificationChannelGroup channelgroup = new AndroidNotificationChannelGroup()
             {
@@ -41,27 +41,32 @@ public class Activities : MonoBehaviour
             };
             AndroidNotificationCenter.RegisterNotificationChannel(channel);
         }
-    }
-    // Update is called once per frame
+   // }
     void Update()
     {
 
     }
     private void Walk()
     {
-
         AndroidNotification notif = new AndroidNotification();
         notif.Title = "Go on a walk:";
         notif.Text = "Go outside and start walking";
         AndroidNotificationCenter.SendNotification(notif, "ChannelID");
 
+        int walktime = UnityEngine.Random.Range(0, 10);
+        AndroidNotification StopNotif = new AndroidNotification();
+        StopNotif.Title = "You Have Finished your walk";
+        StopNotif.FireTime = System.DateTime.Now.AddSeconds(walktime);
+        StopNotif.Text = "You have walked for:" + walktime + " Minutes";
+
+        AndroidNotificationCenter.SendNotification(StopNotif, "ChannelID");
     }
     
     private void Exercise()
     {
         AndroidNotification notif = new AndroidNotification();
         notif.Title = "Go on a Exercise:";
-        notif.Text = "Find a building";
+        notif.Text = "";
         AndroidNotificationCenter.SendNotification(notif, "ChannelID");
     }
 
@@ -69,7 +74,7 @@ public class Activities : MonoBehaviour
     {
         AndroidNotification notif = new AndroidNotification();
         notif.Title = "Do some Yoga:";
-        notif.Text = "Find a building";
+        notif.Text = "";
         AndroidNotificationCenter.SendNotification(notif, "ChannelID");
     }
 }
