@@ -50,13 +50,26 @@ public class draggable : MonoBehaviour
             //Vector3 AbsPos = new Vector3(Mathf.Abs(transform.localPosition.x), Mathf.Abs(transform.localPosition.y), Mathf.Abs(transform.localPosition.z))*(-1);
             //transform.localPosition = MousePos - AbsPos;
             //transform.localPosition = AbsPos * (-1);
-            Vector2 MousePos = Camera.current.ScreenToViewportPoint(Input.mousePosition);
-            MousePos.x = MousePos.x - (float)1.75;
-            MousePos.y = MousePos.y - (float)3.75;
+
+            
+            Vector2 MousePos = Camera.current.ViewportToScreenPoint(Input.mousePosition);
+            MousePos.x = MousePos.x / (float)(17280*4.5);
+            MousePos.y = MousePos.y / (float)(30720 * 4.5);
+
+            MousePos.x -= (float)17.375;
+            MousePos.y -= (float)5.125;
+
+            //MousePos.x = MousePos.x - 15;
 
             print("X: " + MousePos.x + "  Y: " + MousePos.y);
             //transform.Translate(MousePos);
-            transform.localPosition = MousePos;
+
+            
+
+            //Vector2 MousePos = Camera.current.ScreenToViewportPoint(Input.mousePosition);
+            //MousePos.x = MousePos.x - (float)17.8125;
+
+            transform.position = MousePos;
             mouseLastPos = MousePos;
         }
     }
