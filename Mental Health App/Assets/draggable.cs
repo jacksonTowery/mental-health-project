@@ -53,11 +53,11 @@ public class draggable : MonoBehaviour
 
             
             Vector2 MousePos = Camera.current.ViewportToScreenPoint(Input.mousePosition);
-            MousePos.x = MousePos.x / (float)(17280*4.5);
-            MousePos.y = MousePos.y / (float)(30720 * 4.5);
+            MousePos.x = MousePos.x / (float)(17280*5.2);
+            MousePos.y = MousePos.y / (float)(30720*3.595);
 
             MousePos.x -= (float)17.375;
-            MousePos.y -= (float)5.125;
+            MousePos.y -= (float)4.75;
 
             //MousePos.x = MousePos.x - 15;
 
