@@ -14,7 +14,7 @@ public class Activities : MonoBehaviour
     GameObject Text;
     private void Start()
     {
-        Text = GameObject.Find("Activity").transform.GetChild(1).gameObject.transform.GetChild(2).gameObject;
+        Text = GameObject.Find("Activity").transform.GetChild(1).gameObject.transform.GetChild(0).gameObject;
     }
     // Start is called before the first frame update
     void Update()
@@ -46,6 +46,6 @@ public class Activities : MonoBehaviour
             "TreePose",
             "Downward Dog"
         };
-        Text.transform.GetComponent<Text>().text = "Do " + exercises[(int)UnityEngine.Random.Range(0, 2)] + UnityEngine.Random.Range(5, 10) + " Times " ;
+        Text.transform.GetComponent<Text>().text = "Do " + exercises[(int)UnityEngine.Random.Range(0, 2)] + " " + UnityEngine.Random.Range(5, 10) + " Times " ;
     }
 }
