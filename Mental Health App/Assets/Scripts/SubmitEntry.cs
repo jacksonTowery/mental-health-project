@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class SubmitEntry : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class SubmitEntry : MonoBehaviour
     List<Dropdown.OptionData> header=new List<Dropdown.OptionData>();
     Journal test = new Journal("a", "b");
     List<Journal> diary=new List<Journal>();
+    List<string> prompts = new List<string>();
+    
+
    
     // Start is called before the first frame update
     public void MyDemoButton()
@@ -97,13 +101,29 @@ public class SubmitEntry : MonoBehaviour
         page.text = entry.text;
     }
 
-  /*  public void chooseEntry()
+    public void addPrompts()
     {
-        string selected = entries.options[]
+        prompts.Add("What makes you feel the most inspired?");
+        prompts.Add("What can you do today to take better care of yourself?");
+        prompts.Add("How would you spend your perfect day off? What makes that perfect for you?");
     }
-  */
-    // Update is called once per frame
-  
+
+    public void givePrompt()
+    {
+        if (prompts.Count <= 0)
+        {
+            addPrompts();
+        }
+        int rand=Random.Range(0,prompts.Count);
+        //  Random rand = new Random();
+        //int pos=rand.Next(prompts.Count);
+         string prompt = prompts[rand];
+        //string prompt = "" + prompts.Count;
+
+        EditorUtility.DisplayDialog("", "" + prompt, "Okay", "Another Time");
+    }
+
+
 }
 public class Journal
 {
