@@ -58,7 +58,7 @@ public class draggable : MonoBehaviour
             //MousePos.y = MousePos.y / (float)(30720 * 3.595);  //(1920 * 16) * 3.595
 
 
-            MousePos.x = MousePos.x / (float)(17280*9);    //(1080 * 16) * 9
+            MousePos.x = MousePos.x / (float)(17280*4.0);    //(1080 * 16) * 9
             MousePos.y = MousePos.y / (float)(30720*3.4);  //(1920 * 16) * 3.595
 
 
