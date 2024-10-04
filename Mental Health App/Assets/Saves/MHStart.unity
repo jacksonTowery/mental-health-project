@@ -417,7 +417,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 321292998}
         m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
